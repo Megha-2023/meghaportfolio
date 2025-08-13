@@ -1,0 +1,154 @@
+<!doctype html>
+{% load i18n %}
+{% load language_selector %}
+{% load static %}
+<html>
+<head>
+    <title>Megha PANCHAL | Python Developer </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Megha Panchal" />
+    <meta name="description" content="Python Developer, DevOps, and everything in between." />
+      <!-- Favicons -->
+    <link href="{% static 'img/favicon.png' %}" rel="icon">
+    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- BootStrap Link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <img src="{% static 'images/me.jpg' %}" alt="" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="#home-section">Megha Panchal</a></h1>
+                <div class="social-links mt-3 text-center">
+                    <a href="https://x.com/mh_megha" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/megha-panchal-7b593022a/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://github.com/Megha-2023" class="github"><i class="bx bxl-github"></i></a>
+                </div>
+                <form action="{% url 'set_language' %}" method="post" id="form_{{ LANGUAGE_CODE|new_lang_code }}" >
+                {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+                    <input name="language" type="hidden" value="{{ LANGUAGE_CODE|new_lang_code }}" />
+                </form>
+                <button class="lang-btn" type="submit" form="form_{{ LANGUAGE_CODE|new_lang_code }}" value="Submit">
+                {% if LANGUAGE_CODE == "fr" %}
+                    <img src="{% static 'images/en.png' %}" alt="" class="lang-img" />
+                {% else %}
+                    <img src="{% static 'images/fr.png' %}" alt="" class="lang-img" />
+                {% endif %}
+                <span>{{ LANGUAGE_CODE|new_lang_name }} </span>
+                </button>
+            </div>
+             {% include "navbar.html" %}
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+        <!-- ======= Home Section =======-->
+        <section id="home-section" class="d-flex flex-column justify-content-center align-items-center">
+            {% block home %}
+                {% include "sections/home.html" %}
+            {% endblock home %}
+        </section><!-- End Home Section -->
+        <!-- ======= About Section =======-->
+        <section id="about-section" class="about">
+            {% block about-section %}
+                {% include "sections/about.html" %}
+            {% endblock about-section %}
+        </section><!-- End About Section -->
+        <!-- ======= Experience Section =======-->
+        <section id="experience-section">
+            {% block exp-section %}
+                {% include "sections/experience.html" %}
+            {% endblock exp-section %}
+        </section><!-- End Experience Section -->
+        <!-- ======= Skills Section =======-->
+        <section id="skills-section">
+            {% block skills %}
+            {% endblock skills %}
+        </section><!-- End Skills Section -->
+        <!-- ======= Projects Section =======-->
+        <section id="projects-section">
+            {% block projects %}
+            {% endblock projects %}
+        </section><!-- End Projects Section -->
+        <!-- ======= Edu Section =======-->
+        <section id="edu-section">
+            {% block edu %}
+            {% endblock edu %}
+        </section><!-- End Edu Section -->
+        <!-- ======= Contact Section =======-->
+        <section id="contact-section">
+            {% block contact %}
+            {% endblock contact %}
+        </section><!-- End Contact Section -->
+
+    </main>
+    
+
+     <!-- ======= Footer ======= -->
+    {% comment %} <footer id="footer">
+        <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Mohammad Burhan</span></strong>
+        </div>
+        <div class="credits">
+            Designed by <a href="www.linkedin.com/in/burhanmohammad">Burhan</a>
+        </div>
+        </div>
+    </footer><!-- End  Footer --> {% endcomment %}
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/typed.js/typed.min.js' %}"></script>
+    <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!--Boot Strap link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+    
+  </body>
+</html>

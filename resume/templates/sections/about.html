@@ -1,0 +1,20 @@
+<!doctype html>
+{% load i18n %}
+{% load static %}
+{% block about-section %}
+<div class="container">
+    <div class="section-title">
+        <h2>{% trans "A Little Bit About Me" %} </h2>
+        <img src="{% static 'images/me.jpg' %} " class="img-fluid" />
+        <p>  
+            I'm a Python Developer and DevOps Engineer who enjoys solving complex problems and working with others to build reliable,
+            scalable systems. I thrive in collaborative environments and value clear communication, continuous learning, and a team-first mindset.
+            Technically, I work with tools like Python, Docker,and cloud platforms to automate processes and streamline development workflows.
+            But what truly drives me is building solutions that make life easier for both users and teammates.
+            <br><br>Outside of work, you’ll probably find me experimenting in the kitchen, visiting art galleries, or planning my next travel adventure. 
+            I believe creativity fuels problem-solving — whether it's in code or cuisine.
+            <br><br>I'm always open to new challenges, meaningful collaborations, and connecting with people who love what they do.
+        </p>
+    </div>
+</div>
+{% endblock about-section %}
