@@ -1,0 +1,25 @@
+<!doctype html>
+{% load i18n %}
+{% load static %}
+{% block project-modals %}
+<div class="modal fade" id="litreviewModal" tabindex="-1" aria-labelledby="litreviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="litreviewModalLabel">Literature Review</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body text-center">
+            <img src="{% static 'images/ProjectGallery/project-6.png' %}" class="img-fluid mb-3" alt="Project Image">
+            <p>Literature Review is a web application.</p>
+            <p>
+                <a href="#" target="_blank">Visit Site</a> | 
+                <a href="#" target="_blank">View Source</a>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+{% endblock project-modals %}

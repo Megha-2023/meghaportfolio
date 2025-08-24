@@ -8,23 +8,25 @@
 data-bottom-top="transform: translate3d(0px, -150px, 0px);"
 data-top-bottom="transform: translate3d(0px, 150px, 0px);"
 ></div>
-    <div class="section-title">
-        <h2>{% trans "Professional Journey" %}</h2>
-        <div class="experience-wrapper">
-            <div id="timeline">
-            {% for exp in experiences %}
-            <div class="timeline-block">
-                <div class="timeline-content">
-                <h2 class="position">{{ exp.jobtitle }}</h2>
-                <h3 class="company"><a href="" target="_blank">{{ exp.employer }}</a></h3>
-                <p class="job-desc">{{ exp.description }}</p>
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "Professional Journey" %}</h2>
+            <div class="experience-wrapper">
+                <div id="timeline">
+                {% for exp in experiences %}
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                    <h2 class="position">{{ exp.jobtitle }}</h2>
+                    <h3 class="company"><a href="" target="_blank">{{ exp.employer }}</a></h3>
+                    <p class="job-desc">{{ exp.description }}</p>
+                    </div>
+                    <div class="timeline-img"></div>
+                    <span class="date">{{ exp.startdate }} - {{ exp.enddate }}</span>
                 </div>
-                <div class="timeline-img"></div>
-                <span class="date">{{ exp.startdate }} - {{ exp.enddate }}</span>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <i class="down-arrow"></i>
         </div>
-        <i class="down-arrow"></i>
-      </div>
+        </div>
     </div>
 {% endblock exp-section %}
